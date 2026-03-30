@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lava Jato Rodrigo – A melhor lavagem automotiva de Colíder, MT. Lavagem completa, polimento, limpeza interna e proteção de pintura.">
+  <title>Lava Jato Rodrigo | Colíder – MT</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       CSS RESET & BASE
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #2c3e50;
+      background: #f8fafc;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       CSS CUSTOM PROPERTIES
+       ============================================ */
+    :root {
+      --primary: #0b3d91;
+      --primary-dark: #062a66;
+      --primary-light: #1565c0;
+      --accent: #00bcd4;
+      --accent-light: #26c6da;
+      --accent-glow: rgba(0, 188, 212, 0.35);
+      --whatsapp: #25d366;
+      --whatsapp-dark: #1eba59;
+      --white: #ffffff;
+      --off-white: #f8fafc;
+      --gray-50: #f1f5f9;
+      --gray-100: #e2e8f0;
+      --gray-200: #cbd5e1;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1e293b;
+      --gray-900: #0f172a;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1), 0 6px 10px rgba(0, 0, 0, 0.08);
+      --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08);
+      --shadow-card-hover: 0 20px 40px rgba(11, 61, 145, 0.15), 0 8px 16px rgba(0, 188, 212, 0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      --max-width: 1200px;
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--gray-900);
+    }
+
+    p {
+      color: var(--gray-600);
+      font-size: 1.05rem;
+    }
+
+    /* ============================================
+       UTILITY: CONTAINER
+       ============================================ */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================
+       UTILITY: SECTION TITLE
+       ============================================ */
+    .section-label {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .section-label::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--gray-900);
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      max-width: 600px;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+
+    /* ============================================
+       FADE-IN ANIMATION CLASSES
+       ============================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fade-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fade-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-in-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fade-in-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Stagger delays for children */
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    /* ============================================
+       NAVIGATION
+       ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all var(--transition-base);
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 12px 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      transition: color var(--transition-base);
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .navbar.scrolled .nav-logo {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      position: relative;
+      transition: color var(--transition-base);
+      padding: 4px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width var(--transition-base);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .navbar.scrolled .nav-links a {
+      color: var(--gray-600);
+    }
+
+    .navbar.scrolled .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: var(--white) !important;
+      padding: 10px 24px !important;
+      border-radius: 50px !important;
+      font-weight: 600 !important;
+      transition: all var(--transition-base) !important;
+      box-shadow: 0 2px 12px rgba(0, 188, 212, 0.3);
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-light) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0, 188, 212, 0.4) !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      padding: 4px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2.5px;
+      background: var(--white);
+      border-radius: 3px;
+      transition: all var(--transition-base);
+    }
+
+    .navbar.scrolled .hamburger span {
+      background: var(--primary);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a1628 0%, var(--primary-dark) 30%, var(--primary) 60%, #0e7490 100%);
+    }
+
+    /* Animated background shapes */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background:
+        radial-gradient(ellipse 600px 600px at 20% 50%, rgba(0, 188, 212, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 500px at 80% 30%, rgba(0, 188, 212, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 400px 400px at 60% 80%, rgba(6, 42, 102, 0.15) 0%, transparent 70%);
+      animation: heroFloat 20s ease-in-out infinite;
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -20px) rotate(1deg); }
+      66% { transform: translate(-20px, 15px) rotate(-1deg); }
+    }
+
+    /* Subtle water droplet pattern overlay */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle 2px at 10% 20%, rgba(255,255,255,0.06) 0%, transparent 100%),
+        radial-gradient(circle 3px at 30% 70%, rgba(255,255,255,0.04) 0%, transparent 100%),
+        radial-gradient(circle 2px at 50% 40%, rgba(255,255,255,0.05) 0%, transparent 100%),
+        radial-gradient(circle 2px at 70% 80%, rgba(255,255,255,0.04) 0%, transparent 100%),
+        radial-gradient(circle 3px at 90% 30%, rgba(255,255,255,0.06) 0%, transparent 100%),
+        radial-gradient(circle 1.5px at 15% 90%, rgba(255,255,255,0.05) 0%, transparent 100%),
+        radial-gradient(circle 2px at 85% 60%, rgba(255,255,255,0.04) 0%, transparent 100%),
+        radial-gradient(circle 2.5px at 45% 15%, rgba(255,255,255,0.05) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 24px;
+      max-width: 800px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50px;
+      padding: 8px 20px;
+      margin-bottom: 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroFadeUp 0.8s 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: badgePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroFadeUp 0.8s 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .hero h1 .highlight {
+      position: relative;
+      display: inline-block;
+      color: var(--accent);
+    }
+
+    .hero h1 .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--accent);
+      opacity: 0.25;
+      border-radius: 3px;
+    }
+
+    .hero-slogan {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 400;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroFadeUp 0.8s 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroFadeUp 0.8s 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes heroFadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--whatsapp);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 18px 36px;
+      border-radius: 60px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      border-radius: inherit;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+      background: var(--whatsapp-dark);
+    }
+
+    .btn-primary:active {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    /* Pulse ring animation on hero CTA */
+    .btn-primary-hero {
+      animation: ctaPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0.1); }
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: all var(--transition-base);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: heroFadeUp 0.8s 1.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .scroll-indicator span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .scroll-indicator-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      animation: scrollLineAnim 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLineAnim {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      50.01% { transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ============================================
+       ABOUT SECTION
+       ============================================ */
+    .about {
+      padding: 120px 0;
+      background: var(--white);
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card {
+      background: linear-gradient(135deg, var(--primary) 0%, #0e7490 100%);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+    }
+
+    .about-card::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 150px;
+      height: 150px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 50%;
+    }
+
+    .about-card-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .about-card h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .about-card p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .about-stat {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .about-stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent-light);
+      display: block;
+    }
+
+    .about-stat-label {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .about-text h2 {
+      margin-bottom: 24px;
+    }
+
+    .about-text p {
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gray-700);
+    }
+
+    .about-feature-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(11, 61, 145, 0.08));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    /* ============================================
+       SERVICES SECTION
+       ============================================ */
+    .services {
+      padding: 120px 0;
+      background: var(--off-white);
+      position: relative;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .services-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition-base);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: transparent;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(11, 61, 145, 0.08));
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      transition: all var(--transition-base);
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.15), rgba(11, 61, 145, 0.12));
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--gray-800);
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+
+    .service-tag {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 6px 16px;
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.08), rgba(11, 61, 145, 0.06));
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+    }
+
+    /* ============================================
+       CTA BANNER
+       ============================================ */
+    .cta-banner {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #0e7490 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 500px 500px at 30% 50%, rgba(0, 188, 212, 0.1) 0%, transparent 70%),
+        radial-gradient(ellipse 400px 400px at 70% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+    }
+
+    .cta-banner .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-banner h2 {
+      color: var(--white);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .cta-banner p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.15rem;
+      margin-bottom: 36px;
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ============================================
+       LOCATION SECTION
+       ============================================ */
+    .location {
+      padding: 120px 0;
+      background: var(--white);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .location-info {
+      padding-top: 12px;
+    }
+
+    .location-info h2 {
+      margin-bottom: 24px;
+    }
+
+    .location-info > p {
+      margin-bottom: 32px;
+      line-height: 1.85;
+    }
+
+    .location-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .location-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .location-detail-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(11, 61, 145, 0.08));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .location-detail h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-bottom: 4px;
+    }
+
+    .location-detail p {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    .map-wrapper {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--gray-100);
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Map placeholder styling */
+    .map-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: linear-gradient(135deg, #e8f4f8 0%, #dbeafe 100%);
+      color: var(--gray-600);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .map-placeholder-icon {
+      font-size: 3rem;
+      opacity: 0.5;
+    }
+
+    .map-placeholder p {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: var(--gray-900);
+      padding: 48px 0 32px;
+      text-align: center;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-logo span {
+      color: var(--accent);
+    }
+
+    .footer-text {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 8px;
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.25);
+      padding-top: 24px;
+      margin-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* ============================================
+       WHATSAPP FLOATING BUTTON
+       ============================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      background: var(--whatsapp);
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--transition-base);
+      animation: floatPulse 3s ease-in-out infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+    }
+
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--white);
+    }
+
+    /* Pulse ring */
+    .whatsapp-float::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid var(--whatsapp);
+      opacity: 0;
+      animation: waPulseRing 3s ease-in-out infinite;
+    }
+
+    @keyframes waPulseRing {
+      0%, 100% { opacity: 0; transform: scale(0.9); }
+      50% { opacity: 0.4; transform: scale(1.05); }
+    }
+
+    @keyframes floatPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45); }
+      50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45), 0 0 0 10px rgba(37, 211, 102, 0.08); }
+    }
+
+    /* Tooltip */
+    .whatsapp-tooltip {
+      position: absolute;
+      right: calc(100% + 14px);
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--gray-900);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 10px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all var(--transition-base);
+      box-shadow: var(--shadow-md);
+    }
+
+    .whatsapp-tooltip::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-left-color: var(--gray-900);
+    }
+
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+      transform: translateY(-50%) translateX(-4px);
+    }
+
+    /* ============================================
+       RESPONSIVE DESIGN
+       ============================================ */
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .about-grid {
+        gap: 40px;
+      }
+    }
+
+    /* Mobile Nav */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        padding: 100px 32px 32px;
+        gap: 0;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+        transition: right var(--transition-base);
+        z-index: 1000;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links a {
+        color: var(--gray-700) !important;
+        font-size: 1rem;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--gray-100);
+        width: 100%;
+        display: block;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary) !important;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .nav-cta {
+        margin-top: 16px;
+        text-align: center !important;
+        background: var(--accent) !important;
+        border-bottom: none !important;
+        padding: 14px 24px !important;
+        color: var(--white) !important;
+      }
+
+      /* Overlay */
+      .nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 999;
+        backdrop-filter: blur(4px);
+      }
+
+      .nav-overlay.active {
+        display: block;
+      }
+
+      /* About section */
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-visual {
+        order: -1;
+      }
+
+      /* Services */
+      .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+
+      /* Location */
+      .location-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .map-wrapper {
+        aspect-ratio: 16/10;
+      }
+
+      /* Sections padding */
+      .about,
+      .services,
+      .location {
+        padding: 80px 0;
+      }
+
+      .cta-banner {
+        padding: 70px 0;
+      }
+
+      /* Hero */
+      .hero {
+        min-height: 100svh;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+
+      .btn-secondary {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+
+      .scroll-indicator {
+        display: none;
+      }
+
+      /* WhatsApp button */
+      .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 58px;
+        height: 58px;
+      }
+
+      .whatsapp-tooltip {
+        display: none;
+      }
+    }
+
+    /* Small phones */
+    @media (max-width: 380px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card {
+        padding: 32px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       NAVIGATION
+       ======================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#hero" class="nav-logo">Lava Jato <span>Rodrigo</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre" onclick="closeNav()">Sobre</a></li>
+        <li><a href="#servicos" onclick="closeNav()">Serviços</a></li>
+        <li><a href="#localizacao" onclick="closeNav()">Localização</a></li>
+        <li><a href="https://wa.me/55XXXXXXXXXX?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20lavagem." class="nav-cta" target="_blank" rel="noopener" onclick="closeNav()">WhatsApp</a></li>
+      </ul>
+
+      <div class="hamburger" id="hamburger" aria-label="Abrir menu" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </nav>
+
+  <!-- ========================================
+       HERO SECTION
+       ======================================== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Colíder – Mato Grosso
+      </div>
+
+      <h1>Lava Jato <span class="highlight">Rodrigo</span></h1>
+      <p class="hero-slogan">Seu carro brilhando como novo! Cuidado profissional<br>e atenção em cada detalhe.</p>
+
+      <div class="hero-buttons">
+        <a href="https://wa.me/55XXXXXXXXXX?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20lavagem." class="btn-primary btn-primary-hero" target="_blank" rel="noopener">
+          <!-- WhatsApp SVG Icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agende pelo WhatsApp
+        </a>
+        <a href="#servicos" class="btn-secondary">
+          Nossos Serviços ↓
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-indicator-line"></div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       ABOUT / QUEM SOMOS
+       ======================================== -->
+  <section class="about" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual fade-in-left">
+          <div class="about-card">
+            <div class="about-card-icon">💧</div>
+            <h3>Compromisso com Qualidade</h3>
+            <p>Cada veículo que entra no nosso espaço recebe atenção total. Usamos produtos de primeira linha e técnicas profissionais para entregar um resultado que surpreende.</p>
+            <div class="about-stats">
+              <div class="about-stat">
+                <span class="about-stat-number">1000+</span>
+                <span class="about-stat-label">Carros lavados</span>
+              </div>
+              <div class="about-stat">
+                <span class="about-stat-number">100%</span>
+                <span class="about-stat-label">Dedicação</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text fade-in-right">
+          <span class="section-label">Quem Somos</span>
+          <h2 class="section-title">Cuidado de verdade com o seu carro</h2>
+          <p>Sou Rodrigo, e criei a <strong>Lava Jato Rodrigo</strong> com uma missão simples: oferecer o tipo de lavagem que eu gostaria de encontrar para o meu próprio carro. Aqui em <strong>Colíder, MT</strong>, atendemos motoristas de toda a região norte do Mato Grosso, incluindo Sinop e cidades vizinhas.</p>
+          <p>Não somos uma lavagem qualquer. Cada serviço é feito com calma, com os melhores produtos e com um olhar atento aos detalhes. Do motor ao acabamento, tratamos o seu veículo com o respeito que ele merece.</p>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="about-feature-icon">✅</div>
+              <span>Produtos profissionais de alta qualidade</span>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">⏱️</div>
+              <span>Agilidade sem perder a qualidade</span>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">🤝</div>
+              <span>Atendimento pessoal e transparente</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SERVICES / NOSSOS SERVIÇOS
+       ======================================== -->
+  <section class="services" id="servicos">
+    <div class="container">
+      <div class="services-header fade-in">
+        <span class="section-label">Nossos Serviços</span>
+        <h2 class="section-title">O que oferecemos</h2>
+        <p class="section-subtitle">Serviços completos para manter seu veículo impecável por dentro e por fora. Qualidade que você vê e sente.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card fade-in-scale stagger-1">
+          <div class="service-icon">🚿</div>
+          <h3>Lavagem Completa</h3>
+          <p>Lavagem externa detalhada com jato de alta pressão, incluindo limpeza do chassi e das rodas. Seu carro sai brilhando da rua ao estacionamento.</p>
+          <span class="service-tag">Mais popular</span>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card fade-in-scale stagger-2">
+          <div class="service-icon">✨</div>
+          <h3>Polimento Profissional</h3>
+          <p>Restauramos o brilho original da pintura, removendo micro-riscos e imperfeições. Resultado espelhado que impressiona.</p>
+          <span class="service-tag">Premium</span>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card fade-in-scale stagger-3">
+          <div class="service-icon">🧹</div>
+          <h3>Limpeza Interna</h3>
+          <p>Aspiração completa, higienização de bancos, painéis e tapetes. Eliminamos odores e devolvemos o conforto do carro novo.</p>
+          <span class="service-tag">Essencial</span>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card fade-in-scale stagger-4">
+          <div class="service-icon">🛡️</div>
+          <h3>Proteção de Pintura</h3>
+          <p>Aplicação de cera protetora e selante de alta durabilidade. Protege contra sol, chuva e impurezas do dia a dia.</p>
+          <span class="service-tag">Proteção</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       CTA BANNER
+       ======================================== -->
+  <section class="cta-banner">
+    <div class="container fade-in">
+      <h2>Pronto para deixar seu carro impecável?</h2>
+      <p>Agende agora pelo WhatsApp e garanta o melhor cuidado para o seu veículo. Atendimento rápido e sem complicação.</p>
+      <a href="https://wa.me/55XXXXXXXXXX?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20lavagem." class="btn-primary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Fale Conosco no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================
+       LOCATION / LOCALIZAÇÃO
+       ======================================== -->
+  <section class="location" id="localizacao">
+    <div class="container">
+      <div class="location-grid">
+        <div class="location-info fade-in-left">
+          <span class="section-label">Localização</span>
+          <h2 class="section-title">Onde estamos</h2>
+          <p>Estamos no coração de <strong>Colíder</strong>, atendendo toda a região de <strong>Sinop</strong> e o norte do <strong>Mato Grosso</strong>. Venha nos visitar e veja de perto a qualidade do nosso trabalho.</p>
+
+          <div class="location-details">
+            <div class="location-detail">
+              <div class="location-detail-icon">📍</div>
+              <div>
+                <h4>Endereço</h4>
+                <p>Colíder – MT, Brasil</p>
+              </div>
+            </div>
+            <div class="location-detail">
+              <div class="location-detail-icon">📱</div>
+              <div>
+                <h4>WhatsApp</h4>
+                <p>+55 (XX) XXXXX-XXXX</p>
+              </div>
+            </div>
+            <div class="location-detail">
+              <div class="location-detail-icon">🕐</div>
+              <div>
+                <h4>Horário</h4>
+                <p>Segunda a Sábado, 8h às 18h</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-wrapper fade-in-right">
+          <!--
+            Google Maps Embed Placeholder
+            Substitua o conteúdo abaixo por um iframe do Google Maps com a localização exata.
+            Exemplo:
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen loading="lazy"></iframe>
+          -->
+          <div class="map-placeholder">
+            <div class="map-placeholder-icon">📍</div>
+            <p>Google Maps – Colíder, MT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">Lava Jato <span>Rodrigo</span></div>
+      <p class="footer-text">Cuidado profissional para o seu veículo em Colíder, MT.</p>
+      <p class="footer-copy">© 2026 Lava Jato Rodrigo – Colíder, MT – Brasil. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       WHATSAPP FLOATING BUTTON
+       ======================================== -->
+  <a href="https://wa.me/55XXXXXXXXXX?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20lavagem."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener"
+     aria-label="Fale conosco pelo WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-tooltip">Fale conosco!</span>
+  </a>
+
+  <!-- ========================================
+       JAVASCRIPT
+       ======================================== -->
+  <script>
+    /* ============================================
+       NAVBAR: Scroll Effect
+       ============================================ */
+    const navbar = document.getElementById('navbar');
+
+    function handleNavScroll() {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+    handleNavScroll();
+
+    /* ============================================
+       MOBILE NAV: Hamburger Menu
+       ============================================ */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function toggleNav() {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    }
+
+    function closeNav() {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+      navOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', toggleNav);
+    navOverlay.addEventListener('click', closeNav);
+
+    hamburger.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleNav();
+      }
+    });
+
+    /* ============================================
+       INTERSECTION OBSERVER: Fade-in Animations
+       ============================================ */
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -60px 0px',
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-scale').forEach(function(el) {
+      observer.observe(el);
+    });
+
+    /* ============================================
+       SMOOTH SCROLL: For anchor links (fallback)
+       ============================================ */
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const offset = navbar.offsetHeight + 10;
+          const targetPos = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
